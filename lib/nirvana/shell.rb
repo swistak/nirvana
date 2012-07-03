@@ -14,7 +14,7 @@ module Nirvana
     end
 
     def print_result(result)
-      @eval_error || format_result(@result)
+      @eval_error || /^:\w+:/.match(@result.to_s) ? @result : format_result(@result) 
     end
 
     def loop_eval(str)
